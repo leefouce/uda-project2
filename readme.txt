@@ -1,7 +1,8 @@
 ## 导入所有必要的包和函数。
 import csv # 读写 csv 文件
 from datetime import datetime # 日期解析操作
-from pprint import pprint # 用于输出字典等数据结构 这比 base print 函数要好用。
+from pprint import pprint # 用于输出字典等数据结构
+                          # 这比 base print 函数要好用。
 
 def print_first_point(filename):
     """
@@ -106,7 +107,6 @@ tests = {'NYC': (1, 0, 'Friday'),
 for city in tests:
     assert time_of_trip(example_trips[city], city) == tests[city]
 
-
 def type_of_user(datum, city):
     """
     将一个字典作为输入，该字典需包含一条骑行记录（数据）
@@ -137,7 +137,7 @@ tests = {'NYC': 'Customer',
          'Washington': 'Subscriber'}
 
 for city in tests:
-    assert type_of_user(example_trips[city], city) == tests[city]
+    assert type_of_user(example_trips[city], city) == tests[city]   
 
 def condense_data(in_file, out_file, city):
     """
@@ -232,54 +232,54 @@ print("会员进行的骑行次数占比最高的城市：" + max(number_dict,ke
 print("散客进行的骑行次数占比最高的城市是：" + max(number_dict,key=lambda x:number_dict[x][1]/number_dict[x][2]))
 
       
-def filter_trip_user_type(lists,user_filter):
+def filter_trip_user_type(data_list,user_filter):
     """
     用户类型过滤
     Args:
-        lists: list 骑行数据列表
+        data_list: list 骑行数据列表
         user_filter: string 用户类型
     Return:
         list 过滤后的列表
     """
-    return list(filter(lambda x: x[4] == user_filter, lists))
+    return list(filter(lambda x: x[4] == user_filter, data_list))
 
-def duration_of_trips(lists,user_filter=None):
+def duration_of_trips(data_list,user_filter=None):
     """
     获取骑行时长
     Args:
-        lists: list 骑行数据列表
+        data_list: list 骑行数据列表
         user_filter: string 用户类型筛选，默认不筛选
     Return: 
         float 平均骑行时长
     """
     #骑行时间列表
     duration_list = []
-    tmp_list = lists
+    tmp_list = data_list
     # 过滤用户类型
     if user_filter:
-        tmp_list = filter_trip_user_type(lists,user_filter)
+        tmp_list = filter_trip_user_type(data_list,user_filter)
     duration_list = [float(x[0]) for x in tmp_list]
         
     return duration_list
 
-def avg_duration_of_trips(lists,user_filter=None):
+def avg_duration_of_trips(data_list,user_filter=None):
     """
     统计平均骑行时长
     Args:
-        lists: list 骑行数据列表
+        data_list: list 骑行数据列表
         user_filter: string 用户类型筛选，默认不筛选
     Return: 
         float 平均骑行时长
     """
-    duration_list = duration_of_trips(lists,user_filter)
+    duration_list = duration_of_trips(data_list,user_filter)
         
-    return sum(duration_list)/ len(duration_list)    
+    return sum(duration_list)/ len(duration_list)
 
-def over_mins_proportion_of_trips(lists,mins,user_filter=None):
+def over_mins_proportion_of_trips(data_list,mins,user_filter=None):
     """
     统计收时间超过指定骑行的比例
     Args:
-        lists: list 骑行数据列表
+        data_list: list 骑行数据列表
         mins: float 骑行时间
         user_filter: string 用户类型筛选，默认不筛选
     Return:
@@ -287,14 +287,14 @@ def over_mins_proportion_of_trips(lists,mins,user_filter=None):
     """
     # 初始化超过30分钟骑行列表
     over_mins_list = []
-    tmp_lists = lists
+    tmp_lists = data_list
     # 过滤用户类型
     if user_filter:
         tmp_lists = filter(lambda x: x[4] == user_filter, tmp_lists)
     # filter返回的是filter对象 需要用list转换一下
     over_mins_list = list(filter(lambda x: float(x[0]) > mins, tmp_lists))
     
-    return len(over_mins_list) / len(lists)
+    return len(over_mins_list) / len(data_list)
 
 # 测试用例  
 # 不要运行
@@ -305,6 +305,7 @@ with open(data_file,'r') as f_in:
     bay_area_list = bay_area_list[1:]
 print(over_mins_proportion_of_trips(bay_area_list,30.00))
 print(avg_duration_of_trips(bay_area_list))
+
 
 ## 使用本框及新框来回答问题 4b。               ##
 ##                                                                      ##
@@ -393,21 +394,28 @@ data_file = {'Washington': './data/Washington-2016-Summary.csv'}
 for city, file_path in data_file.items():
     with open(file_path,'r') as f_in:
         reader = csv.reader(f_in)
-        lists = list(reader)[1:]
-        duration_list = [float(x[0]) for x in lists]
+        data_list = list(reader)[1:]
+        duration_list = [float(x[0]) for x in data_list]
         plt.hist(duration_list, range=(min(duration_list),75))
         plt.title('Distribution of {}\'s Trip Durations'.format(city))
         plt.xlabel('Duration (m)')
         plt.ylabel('Number')
         plt.show()
 
-
-def draw_duration_plot(lists, title):
-        plt.hist(lists,bins=range(0,75,5))
-        plt.title(title)
-        plt.xlabel('Duration (m)')
-        plt.ylabel('Number')
-        plt.show()
+def draw_duration_plot(data_list, title):
+    """
+    绘制分布图
+    Args:
+        data_list: list 骑行数据列表
+        title: string 分布图名称
+    Return:
+        string 超过骑行时间骑行的比例
+    """
+    plt.hist(data_list,bins=range(0,75,5))
+    plt.title(title)
+    plt.xlabel('Duration (m)')
+    plt.ylabel('Number')
+    plt.show()
 
 ## 使用本框及新框来回答问题 5##
 
@@ -418,26 +426,26 @@ import matplotlib.pyplot as plt
 data_file = './data/Washington-2016-Summary.csv'
 with open(data_file,'r') as f_in:
     reader = csv.reader(f_in)
-    lists = list(reader)[1:]
-    duration_list = duration_of_trips(lists);
-    subscriber_duration_list = duration_of_trips(lists,'Subscriber');
-    customer_duration_list = duration_of_trips(lists,'Customer');
+    data_list = list(reader)[1:]
+    duration_list = duration_of_trips(data_list);
+    subscriber_duration_list = duration_of_trips(data_list,'Subscriber');
+    customer_duration_list = duration_of_trips(data_list,'Customer');
    
     draw_duration_plot(subscriber_duration_list,'Distribution of Washington\'s Subscriber Trip Durations')
     draw_duration_plot(customer_duration_list,'Distribution of Washington\'s Customer Trip Durations')
 
 # 不同月份或季度的骑客量有什么区别？哪个月份/季度的骑客量最高？会员骑行量与散客骑行量之比会受月份或季度的影响吗
-def monthly_number_of_trips(lists,month=None):
+def monthly_number_of_trips(data_list,month=None):
     """
     获取特定月份的骑行数量
     Args:
-        lists: list 骑行数据列表
+        data_list: list 骑行数据列表
         month: string 月份(数据格式：1-12)
     Return: 
         int 骑客量
     """
     number_list = []
-    number_list = list(filter(lambda x:x[1]==month,lists))
+    number_list = list(filter(lambda x:x[1]==month,data_list))
     return len(number_list)
 
 def draw_monthly_number_plot(subscriber_lists,customer_lists,title,xlabel,ylabel):
@@ -465,11 +473,8 @@ def draw_monthly_number_plot(subscriber_lists,customer_lists,title,xlabel,ylabel
         ax.text(rect.get_x(), height*1.05, str(height), color='blue')
     ax.legend((rects1[0], rects2[0]), ('Subscriber', 'Customer'), loc='upper left')
 
-    plt.show()
+    plt.show()  
 
-## 使用本框及新框来继续探索数据集。 ##
-## 一旦你进行了自己的探索，请写下你的发现 ##
-## 请将发现写在上方的 Markdown 框中。 ##
 import numpy as np
 
 # 开始计算各月份的骑客量
@@ -477,14 +482,15 @@ month_number_list = []
 data_file = './data/Washington-2016-Summary.csv'
 with open(data_file,'r') as f_in:
     reader = csv.reader(f_in)
-    lists = list(reader)[1:]
+    data_list = list(reader)[1:]
     # 会员列表
-    subscriber_list = filter_trip_user_type(lists, 'Subscriber')
+    subscriber_list = filter_trip_user_type(data_list, 'Subscriber')
     # 散客列表
-    customer_list = filter_trip_user_type(lists, 'Customer')
+    customer_list = filter_trip_user_type(data_list, 'Customer')
     subscriber_month_number_list = []
     customer_month_number_list = []
     for month in range(1,13):
         subscriber_month_number_list.append(monthly_number_of_trips(subscriber_list,str(month)))
         customer_month_number_list.append(monthly_number_of_trips(customer_list,str(month)))
     draw_monthly_number_plot(subscriber_month_number_list,customer_month_number_list,'Monthly Distribution of Trips', 'Months', 'Number of Trips')
+        
