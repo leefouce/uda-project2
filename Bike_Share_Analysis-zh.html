@@ -12279,23 +12279,21 @@ OrderedDict([(&#39;duration&#39;, &#39;13.983333333333333&#39;),
 <div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## 修改此框及上框，回答问题 4a。##</span>
-<span class="c1">## 记得运行你在问题 3 中创建的数据文件清理函数。     ##</span>
+<div class=" highlight hl-ipython3"><pre><span></span>    <span class="c1">## 修改此框及上框，回答问题 4a。##</span>
+    <span class="c1">## 记得运行你在问题 3 中创建的数据文件清理函数。     ##</span>
 
-<span class="n">data_file</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Washington&#39;</span><span class="p">:</span> <span class="s1">&#39;./data/Washington-2016-Summary.csv&#39;</span><span class="p">,</span>
-             <span class="s1">&#39;Chicago&#39;</span><span class="p">:</span> <span class="s1">&#39;./data/Chicago-2016-Summary.csv&#39;</span><span class="p">,</span>
-             <span class="s1">&#39;NYC&#39;</span><span class="p">:</span> <span class="s1">&#39;./data/NYC-2016-Summary.csv&#39;</span><span class="p">}</span>
-<span class="n">number_dict</span> <span class="o">=</span> <span class="p">{}</span>
-<span class="k">for</span> <span class="n">city</span><span class="p">,</span> <span class="n">file_path</span> <span class="ow">in</span> <span class="n">data_file</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-    <span class="n">number_dict</span><span class="p">[</span><span class="n">city</span><span class="p">]</span> <span class="o">=</span> <span class="n">number_of_trips</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
-<span class="c1"># 骑行次数最多的城市</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;骑行次数最多的城市是：&quot;</span> <span class="o">+</span> <span class="nb">max</span><span class="p">(</span><span class="n">number_dict</span><span class="p">,</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="n">number_dict</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="mi">2</span><span class="p">]))</span>
-<span class="c1"># 会员进行的骑行次数占比最高的城市</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;会员进行的骑行次数占比最高的城市：&quot;</span> <span class="o">+</span> <span class="nb">max</span><span class="p">(</span><span class="n">number_dict</span><span class="p">,</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="n">number_dict</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="n">number_dict</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="mi">2</span><span class="p">]))</span>
-<span class="c1"># 散客进行的骑行次数占比最高的城市 </span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;散客进行的骑行次数占比最高的城市是：&quot;</span> <span class="o">+</span> <span class="nb">max</span><span class="p">(</span><span class="n">number_dict</span><span class="p">,</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="n">number_dict</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="n">number_dict</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="mi">2</span><span class="p">]))</span>
-
-      
+    <span class="n">data_file</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Washington&#39;</span><span class="p">:</span> <span class="s1">&#39;./data/Washington-2016-Summary.csv&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;Chicago&#39;</span><span class="p">:</span> <span class="s1">&#39;./data/Chicago-2016-Summary.csv&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;NYC&#39;</span><span class="p">:</span> <span class="s1">&#39;./data/NYC-2016-Summary.csv&#39;</span><span class="p">}</span>
+    <span class="n">number_dict</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">city</span><span class="p">,</span> <span class="n">file_path</span> <span class="ow">in</span> <span class="n">data_file</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">number_dict</span><span class="p">[</span><span class="n">city</span><span class="p">]</span> <span class="o">=</span> <span class="n">number_of_trips</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+    <span class="c1"># 骑行次数最多的城市</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;骑行次数最多的城市是：&quot;</span> <span class="o">+</span> <span class="nb">max</span><span class="p">(</span><span class="n">number_dict</span><span class="p">,</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="n">number_dict</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="mi">2</span><span class="p">]))</span>
+    <span class="c1"># 会员进行的骑行次数占比最高的城市</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;会员进行的骑行次数占比最高的城市：&quot;</span> <span class="o">+</span> <span class="nb">max</span><span class="p">(</span><span class="n">number_dict</span><span class="p">,</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="n">number_dict</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="n">number_dict</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="mi">2</span><span class="p">]))</span>
+    <span class="c1"># 散客进行的骑行次数占比最高的城市 </span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;散客进行的骑行次数占比最高的城市是：&quot;</span> <span class="o">+</span> <span class="nb">max</span><span class="p">(</span><span class="n">number_dict</span><span class="p">,</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="n">number_dict</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="n">number_dict</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="mi">2</span><span class="p">]))</span>
 </pre></div>
 
 </div>
@@ -12346,19 +12344,19 @@ OrderedDict([(&#39;duration&#39;, &#39;13.983333333333333&#39;),
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">filter_trip_user_type</span><span class="p">(</span><span class="n">lists</span><span class="p">,</span><span class="n">user_filter</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">filter_trip_user_type</span><span class="p">(</span><span class="n">data_list</span><span class="p">,</span><span class="n">user_filter</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    用户类型过滤</span>
 <span class="sd">    Args:</span>
-<span class="sd">        lists: list 骑行数据列表</span>
+<span class="sd">        data_list: list 骑行数据列表</span>
 <span class="sd">        user_filter: string 用户类型</span>
 <span class="sd">    Return:</span>
 <span class="sd">        list 过滤后的列表</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">==</span> <span class="n">user_filter</span><span class="p">,</span> <span class="n">lists</span><span class="p">))</span>
+    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">==</span> <span class="n">user_filter</span><span class="p">,</span> <span class="n">data_list</span><span class="p">))</span>
 </pre></div>
 
 </div>
@@ -12368,24 +12366,24 @@ OrderedDict([(&#39;duration&#39;, &#39;13.983333333333333&#39;),
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">duration_of_trips</span><span class="p">(</span><span class="n">lists</span><span class="p">,</span><span class="n">user_filter</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">duration_of_trips</span><span class="p">(</span><span class="n">data_list</span><span class="p">,</span><span class="n">user_filter</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    获取骑行时长</span>
 <span class="sd">    Args:</span>
-<span class="sd">        lists: list 骑行数据列表</span>
+<span class="sd">        data_list: list 骑行数据列表</span>
 <span class="sd">        user_filter: string 用户类型筛选，默认不筛选</span>
 <span class="sd">    Return: </span>
 <span class="sd">        float 平均骑行时长</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1">#骑行时间列表</span>
     <span class="n">duration_list</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="n">tmp_list</span> <span class="o">=</span> <span class="n">lists</span>
+    <span class="n">tmp_list</span> <span class="o">=</span> <span class="n">data_list</span>
     <span class="c1"># 过滤用户类型</span>
     <span class="k">if</span> <span class="n">user_filter</span><span class="p">:</span>
-        <span class="n">tmp_list</span> <span class="o">=</span> <span class="n">filter_trip_user_type</span><span class="p">(</span><span class="n">lists</span><span class="p">,</span><span class="n">user_filter</span><span class="p">)</span>
+        <span class="n">tmp_list</span> <span class="o">=</span> <span class="n">filter_trip_user_type</span><span class="p">(</span><span class="n">data_list</span><span class="p">,</span><span class="n">user_filter</span><span class="p">)</span>
     <span class="n">duration_list</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">tmp_list</span><span class="p">]</span>
         
     <span class="k">return</span> <span class="n">duration_list</span>
@@ -12398,19 +12396,19 @@ OrderedDict([(&#39;duration&#39;, &#39;13.983333333333333&#39;),
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">avg_duration_of_trips</span><span class="p">(</span><span class="n">lists</span><span class="p">,</span><span class="n">user_filter</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">avg_duration_of_trips</span><span class="p">(</span><span class="n">data_list</span><span class="p">,</span><span class="n">user_filter</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    统计平均骑行时长</span>
 <span class="sd">    Args:</span>
-<span class="sd">        lists: list 骑行数据列表</span>
+<span class="sd">        data_list: list 骑行数据列表</span>
 <span class="sd">        user_filter: string 用户类型筛选，默认不筛选</span>
 <span class="sd">    Return: </span>
 <span class="sd">        float 平均骑行时长</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">duration_list</span> <span class="o">=</span> <span class="n">duration_of_trips</span><span class="p">(</span><span class="n">lists</span><span class="p">,</span><span class="n">user_filter</span><span class="p">)</span>
+    <span class="n">duration_list</span> <span class="o">=</span> <span class="n">duration_of_trips</span><span class="p">(</span><span class="n">data_list</span><span class="p">,</span><span class="n">user_filter</span><span class="p">)</span>
         
     <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">duration_list</span><span class="p">)</span><span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">duration_list</span><span class="p">)</span>
 </pre></div>
@@ -12422,14 +12420,14 @@ OrderedDict([(&#39;duration&#39;, &#39;13.983333333333333&#39;),
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">over_mins_proportion_of_trips</span><span class="p">(</span><span class="n">lists</span><span class="p">,</span><span class="n">mins</span><span class="p">,</span><span class="n">user_filter</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">over_mins_proportion_of_trips</span><span class="p">(</span><span class="n">data_list</span><span class="p">,</span><span class="n">mins</span><span class="p">,</span><span class="n">user_filter</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    统计收时间超过指定骑行的比例</span>
 <span class="sd">    Args:</span>
-<span class="sd">        lists: list 骑行数据列表</span>
+<span class="sd">        data_list: list 骑行数据列表</span>
 <span class="sd">        mins: float 骑行时间</span>
 <span class="sd">        user_filter: string 用户类型筛选，默认不筛选</span>
 <span class="sd">    Return:</span>
@@ -12437,14 +12435,14 @@ OrderedDict([(&#39;duration&#39;, &#39;13.983333333333333&#39;),
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># 初始化超过30分钟骑行列表</span>
     <span class="n">over_mins_list</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="n">tmp_lists</span> <span class="o">=</span> <span class="n">lists</span>
+    <span class="n">tmp_lists</span> <span class="o">=</span> <span class="n">data_list</span>
     <span class="c1"># 过滤用户类型</span>
     <span class="k">if</span> <span class="n">user_filter</span><span class="p">:</span>
         <span class="n">tmp_lists</span> <span class="o">=</span> <span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">==</span> <span class="n">user_filter</span><span class="p">,</span> <span class="n">tmp_lists</span><span class="p">)</span>
     <span class="c1"># filter返回的是filter对象 需要用list转换一下</span>
     <span class="n">over_mins_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">&gt;</span> <span class="n">mins</span><span class="p">,</span> <span class="n">tmp_lists</span><span class="p">))</span>
     
-    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">over_mins_list</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">lists</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">over_mins_list</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">data_list</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12454,7 +12452,7 @@ OrderedDict([(&#39;duration&#39;, &#39;13.983333333333333&#39;),
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 测试用例  </span>
@@ -12481,10 +12479,18 @@ OrderedDict([(&#39;duration&#39;, &#39;13.983333333333333&#39;),
 <div class="prompt"></div>
 
 
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>0.035243689474519765
-14.038656929671422
-</pre>
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">FileNotFoundError</span>                         Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-6-9b360db081d9&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span> <span class="ansi-red-fg"># 不要运行</span>
+<span class="ansi-green-intense-fg ansi-bold">      3</span> data_file <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">&#39;./examples/BayArea-Y3-Summary.csv&#39;</span>
+<span class="ansi-green-fg">----&gt; 4</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">with</span> open<span class="ansi-blue-fg">(</span>data_file<span class="ansi-blue-fg">,</span><span class="ansi-blue-fg">&#39;r&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">as</span> f_in<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">      5</span>     reader <span class="ansi-blue-fg">=</span> csv<span class="ansi-blue-fg">.</span>reader<span class="ansi-blue-fg">(</span>f_in<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      6</span>     bay_area_list <span class="ansi-blue-fg">=</span> list<span class="ansi-blue-fg">(</span>reader<span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;./examples/BayArea-Y3-Summary.csv&#39;</pre>
 </div>
 </div>
 
@@ -12830,8 +12836,8 @@ AABJRU5ErkJggg==
 <span class="k">for</span> <span class="n">city</span><span class="p">,</span> <span class="n">file_path</span> <span class="ow">in</span> <span class="n">data_file</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f_in</span><span class="p">:</span>
         <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">f_in</span><span class="p">)</span>
-        <span class="n">lists</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">reader</span><span class="p">)[</span><span class="mi">1</span><span class="p">:]</span>
-        <span class="n">duration_list</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">lists</span><span class="p">]</span>
+        <span class="n">data_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">reader</span><span class="p">)[</span><span class="mi">1</span><span class="p">:]</span>
+        <span class="n">duration_list</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">data_list</span><span class="p">]</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">duration_list</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">duration_list</span><span class="p">),</span><span class="mi">75</span><span class="p">))</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Distribution of </span><span class="si">{}</span><span class="se">\&#39;</span><span class="s1">s Trip Durations&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">city</span><span class="p">))</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Duration (m)&#39;</span><span class="p">)</span>
@@ -13017,8 +13023,8 @@ YmZmxTipmJlZMU4qZmZWjJOKmZkV8/8BhBeRQ2GqGXEAAAAASUVORK5CYII=
 <ol>
 <li>华盛顿会员的骑行人数分布峰值在：3-8分钟之间</li>
 <li>华盛顿散客的骑行人数分布峰值在：18-23分钟之间</li>
-<li>会员的骑行人数在3-8分钟达到峰值以后开始下降，在15-20分钟之间下降明显</li>
-<li>散客的骑行人数在23分钟之前呈上升状态，在23分钟左右达到峰值以后开始下降，在30-40分钟之间下降明显</li>
+<li>会员分布图呈右（正）偏态分布</li>
+<li>散客分布图呈右（正）偏态分布</li>
 </ol>
 
 </div>
@@ -13026,15 +13032,23 @@ YmZmxTipmJlZMU4qZmZWjJOKmZkV8/8BhBeRQ2GqGXEAAAAASUVORK5CYII=
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">draw_duration_plot</span><span class="p">(</span><span class="n">lists</span><span class="p">,</span> <span class="n">title</span><span class="p">):</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">lists</span><span class="p">,</span><span class="n">bins</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">75</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Duration (m)&#39;</span><span class="p">)</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Number&#39;</span><span class="p">)</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">draw_duration_plot</span><span class="p">(</span><span class="n">data_list</span><span class="p">,</span> <span class="n">title</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    绘制分布图</span>
+<span class="sd">    Args:</span>
+<span class="sd">        data_list: list 骑行数据列表</span>
+<span class="sd">        title: string 分布图名称</span>
+<span class="sd">    Return:</span>
+<span class="sd">        string 超过骑行时间骑行的比例</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data_list</span><span class="p">,</span><span class="n">bins</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">75</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Duration (m)&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Number&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 
 </div>
@@ -13056,10 +13070,10 @@ YmZmxTipmJlZMU4qZmZWjJOKmZkV8/8BhBeRQ2GqGXEAAAAASUVORK5CYII=
 <span class="n">data_file</span> <span class="o">=</span> <span class="s1">&#39;./data/Washington-2016-Summary.csv&#39;</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">data_file</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f_in</span><span class="p">:</span>
     <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">f_in</span><span class="p">)</span>
-    <span class="n">lists</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">reader</span><span class="p">)[</span><span class="mi">1</span><span class="p">:]</span>
-    <span class="n">duration_list</span> <span class="o">=</span> <span class="n">duration_of_trips</span><span class="p">(</span><span class="n">lists</span><span class="p">);</span>
-    <span class="n">subscriber_duration_list</span> <span class="o">=</span> <span class="n">duration_of_trips</span><span class="p">(</span><span class="n">lists</span><span class="p">,</span><span class="s1">&#39;Subscriber&#39;</span><span class="p">);</span>
-    <span class="n">customer_duration_list</span> <span class="o">=</span> <span class="n">duration_of_trips</span><span class="p">(</span><span class="n">lists</span><span class="p">,</span><span class="s1">&#39;Customer&#39;</span><span class="p">);</span>
+    <span class="n">data_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">reader</span><span class="p">)[</span><span class="mi">1</span><span class="p">:]</span>
+    <span class="n">duration_list</span> <span class="o">=</span> <span class="n">duration_of_trips</span><span class="p">(</span><span class="n">data_list</span><span class="p">);</span>
+    <span class="n">subscriber_duration_list</span> <span class="o">=</span> <span class="n">duration_of_trips</span><span class="p">(</span><span class="n">data_list</span><span class="p">,</span><span class="s1">&#39;Subscriber&#39;</span><span class="p">);</span>
+    <span class="n">customer_duration_list</span> <span class="o">=</span> <span class="n">duration_of_trips</span><span class="p">(</span><span class="n">data_list</span><span class="p">,</span><span class="s1">&#39;Customer&#39;</span><span class="p">);</span>
    
     <span class="n">draw_duration_plot</span><span class="p">(</span><span class="n">subscriber_duration_list</span><span class="p">,</span><span class="s1">&#39;Distribution of Washington</span><span class="se">\&#39;</span><span class="s1">s Subscriber Trip Durations&#39;</span><span class="p">)</span>
     <span class="n">draw_duration_plot</span><span class="p">(</span><span class="n">customer_duration_list</span><span class="p">,</span><span class="s1">&#39;Distribution of Washington</span><span class="se">\&#39;</span><span class="s1">s Customer Trip Durations&#39;</span><span class="p">)</span>
@@ -13475,17 +13489,17 @@ mpOHmZmV5uRhZmalOXmYmVlp/x9KE/wjZAlISwAAAABJRU5ErkJggg==
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 不同月份或季度的骑客量有什么区别？哪个月份/季度的骑客量最高？会员骑行量与散客骑行量之比会受月份或季度的影响吗</span>
-<span class="k">def</span> <span class="nf">monthly_number_of_trips</span><span class="p">(</span><span class="n">lists</span><span class="p">,</span><span class="n">month</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">monthly_number_of_trips</span><span class="p">(</span><span class="n">data_list</span><span class="p">,</span><span class="n">month</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    获取特定月份的骑行数量</span>
 <span class="sd">    Args:</span>
-<span class="sd">        lists: list 骑行数据列表</span>
+<span class="sd">        data_list: list 骑行数据列表</span>
 <span class="sd">        month: string 月份(数据格式：1-12)</span>
 <span class="sd">    Return: </span>
 <span class="sd">        int 骑客量</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">number_list</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="n">number_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">==</span><span class="n">month</span><span class="p">,</span><span class="n">lists</span><span class="p">))</span>
+    <span class="n">number_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">==</span><span class="n">month</span><span class="p">,</span><span class="n">data_list</span><span class="p">))</span>
     <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">number_list</span><span class="p">)</span>
 </pre></div>
 
@@ -13534,30 +13548,28 @@ mpOHmZmV5uRhZmalOXmYmVlp/x9KE/wjZAlISwAAAABJRU5ErkJggg==
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## 使用本框及新框来继续探索数据集。 ##</span>
-<span class="c1">## 一旦你进行了自己的探索，请写下你的发现 ##</span>
-<span class="c1">## 请将发现写在上方的 Markdown 框中。 ##</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="c1"># 开始计算各月份的骑客量</span>
 <span class="n">month_number_list</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">data_file</span> <span class="o">=</span> <span class="s1">&#39;./data/Washington-2016-Summary.csv&#39;</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">data_file</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f_in</span><span class="p">:</span>
     <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">f_in</span><span class="p">)</span>
-    <span class="n">lists</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">reader</span><span class="p">)[</span><span class="mi">1</span><span class="p">:]</span>
+    <span class="n">data_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">reader</span><span class="p">)[</span><span class="mi">1</span><span class="p">:]</span>
     <span class="c1"># 会员列表</span>
-    <span class="n">subscriber_list</span> <span class="o">=</span> <span class="n">filter_trip_user_type</span><span class="p">(</span><span class="n">lists</span><span class="p">,</span> <span class="s1">&#39;Subscriber&#39;</span><span class="p">)</span>
+    <span class="n">subscriber_list</span> <span class="o">=</span> <span class="n">filter_trip_user_type</span><span class="p">(</span><span class="n">data_list</span><span class="p">,</span> <span class="s1">&#39;Subscriber&#39;</span><span class="p">)</span>
     <span class="c1"># 散客列表</span>
-    <span class="n">customer_list</span> <span class="o">=</span> <span class="n">filter_trip_user_type</span><span class="p">(</span><span class="n">lists</span><span class="p">,</span> <span class="s1">&#39;Customer&#39;</span><span class="p">)</span>
+    <span class="n">customer_list</span> <span class="o">=</span> <span class="n">filter_trip_user_type</span><span class="p">(</span><span class="n">data_list</span><span class="p">,</span> <span class="s1">&#39;Customer&#39;</span><span class="p">)</span>
     <span class="n">subscriber_month_number_list</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">customer_month_number_list</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">month</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">13</span><span class="p">):</span>
         <span class="n">subscriber_month_number_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">monthly_number_of_trips</span><span class="p">(</span><span class="n">subscriber_list</span><span class="p">,</span><span class="nb">str</span><span class="p">(</span><span class="n">month</span><span class="p">)))</span>
         <span class="n">customer_month_number_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">monthly_number_of_trips</span><span class="p">(</span><span class="n">customer_list</span><span class="p">,</span><span class="nb">str</span><span class="p">(</span><span class="n">month</span><span class="p">)))</span>
     <span class="n">draw_monthly_number_plot</span><span class="p">(</span><span class="n">subscriber_month_number_list</span><span class="p">,</span><span class="n">customer_month_number_list</span><span class="p">,</span><span class="s1">&#39;Monthly Distribution of Trips&#39;</span><span class="p">,</span> <span class="s1">&#39;Months&#39;</span><span class="p">,</span> <span class="s1">&#39;Number of Trips&#39;</span><span class="p">)</span>
+        
 </pre></div>
 
 </div>
@@ -13871,6 +13883,21 @@ AAAASUVORK5CYII=
 
 </div>
 
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## 使用本框及新框来继续探索数据集。 ##</span>
+<span class="c1">## 一旦你进行了自己的探索，请写下你的发现 ##</span>
+<span class="c1">## 请将发现写在上方的 Markdown 框中。 ##</span>
+</pre></div>
+
+</div>
 </div>
 </div>
 
